@@ -17,6 +17,13 @@ $ ansible -s -m shell testbed -a 'whoami'
 192.168.50.95 | SUCCESS | rc=0 >>
 root
 ```
+With '-b' also runs with sudo privileges.
+
+```
+$ ansible -b -m shell -a 'id' testbed
+192.168.50.95 | SUCCESS | rc=0 >>
+uid=0(root) gid=0(root) grupos=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),19(log)
+```
 Arbitrary commands are available:
 ```
 sysadmin@linordix:~$ ansible -m shell testbed -a 'uptime'
@@ -29,3 +36,5 @@ sysadmin@linordix:~$ ansible -m shell testbed -a 'free -m'
 Mem:           2001         217        1536           2         247        1630
 Swap:          2407           0        2407
 ```
+See ya leita
+
