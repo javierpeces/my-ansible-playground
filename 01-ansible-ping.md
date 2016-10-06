@@ -7,7 +7,7 @@ $ ansible -m ping archlnx64
  [WARNING]: provided hosts list is empty, only localhost is available
 ```
 
-Now let's find and use the label 
+Now let's find and use the label; 
 we never made a ssh connection to this system, so it wil fail
 
 ```
