@@ -9,8 +9,8 @@ My desktop's /etc/hosts contains one line like this:
 ```
 This is my desktop's /etc/ansible/hosts relevant part:
 ```
-[testbed]
 # this is archlnx64
+[testbed]
 192.168.50.95
 ```
 The first thing to be done is, of course, ensuring access from the desktop to the victim:
