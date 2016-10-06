@@ -1,5 +1,5 @@
 Common mistake: adding a box in ansible/hosts 
-And trying to run ansible stuff by its name
+and trying to run ansible stuff by its name
 
 ```
 $ ansible -m ping archlnx64
@@ -8,7 +8,7 @@ $ ansible -m ping archlnx64
 ```
 
 Now let's find and use the label 
-We never made a ssh connection to this system, so it wil fail
+we never made a ssh connection to this system, so it wil fail
 
 ```
 $ ansible -m ping testbed
