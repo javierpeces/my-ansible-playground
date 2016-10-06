@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # common mistake: adding a box in ansible/hosts 
-# and trying to ping it with ansible by its name
+# and trying to run ansible stuff by its name
 
 $ ansible -m ping archlnx64
  [WARNING]: provided hosts list is empty, only localhost is available
@@ -21,7 +21,8 @@ sysadmin@linordix:~$ ansible -m ping testbed
      "unreachable": true
  }
 
-# A connection will do the trick:
+# A common ssh connection will do the trick
+# because it stores the host fingerprint in the known hosts file
 
 $ ssh archlnx64
 The authenticity of host 'archlnx64 (192.168.50.95)' can't be established.
