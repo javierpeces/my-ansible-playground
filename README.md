@@ -6,9 +6,9 @@ Got a VM to act as a guinea pig. Address is 192.168.50.95/24 and hostname is arc
 
 This is my desktop's /etc/ansible/hosts relevant part:
 
-[testbed]
-\# this is archlnx64
-192.168.50.95
+[testbed]\n
+\# this is archlnx64\n
+192.168.50.95\n
 
 The first thing to be done is, of course, ensuring access from the desktop to the victim:
 
