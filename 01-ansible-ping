@@ -5,9 +5,10 @@
 #
 
 $ ansible -m ping archlnx64
-#  [WARNING]: provided hosts list is empty, only localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available
 
-# Now find the label and use it. We never made a ssh connection to this system, so it wil fail
+Now let's find and use the label 
+We never made a ssh connection to this system, so it wil fail
 
 sysadmin@linordix:~$ ansible -m ping testbed
 #
