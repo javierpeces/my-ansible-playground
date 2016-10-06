@@ -26,11 +26,11 @@ uid=0(root) gid=0(root) grupos=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10
 ```
 Arbitrary commands are available:
 ```
-sysadmin@linordix:~$ ansible -m shell testbed -a 'uptime'
+$ ansible -m shell testbed -a 'uptime'
 192.168.50.95 | SUCCESS | rc=0 >>
  15:48:29 up  2:04,  2 users,  load average: 0,00, 0,00, 0,00
 
-sysadmin@linordix:~$ ansible -m shell testbed -a 'free -m'
+$ ansible -m shell testbed -a 'free -m'
 192.168.50.95 | SUCCESS | rc=0 >>
               total        used        free      shared  buff/cache   available
 Mem:           2001         217        1536           2         247        1630
