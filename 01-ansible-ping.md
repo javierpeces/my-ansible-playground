@@ -11,7 +11,7 @@ Now let's find and use the label
 We never made a ssh connection to this system, so it wil fail
 
 ```
-sysadmin@linordix:~$ ansible -m ping testbed
+$ ansible -m ping testbed
  The authenticity of host '192.168.50.95 (192.168.50.95)' can't be established.
  ECDSA key fingerprint is SHA256:123456789abcdef123456789abcdef123456789abcd
  Are you sure you want to continue connecting (yes/no)? yes
