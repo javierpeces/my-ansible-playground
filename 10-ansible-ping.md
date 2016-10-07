@@ -12,10 +12,10 @@ we never made a ssh connection to this system, so it wil fail
 
 ```
 $ ansible -m ping testbed
- The authenticity of host '192.168.50.95 (192.168.50.95)' can't be established.
+ The authenticity of host '192.168.1.95 (192.168.1.95)' can't be established.
  ECDSA key fingerprint is SHA256:123456789abcdef123456789abcdef123456789abcd
  Are you sure you want to continue connecting (yes/no)? yes
- 192.168.50.95 | UNREACHABLE! => {
+ 192.168.1.95 | UNREACHABLE! => {
      "changed": false, 
      "msg": "ERROR! SSH encountered an unknown error during the connection. 
             We recommend you re-run the command using -vvvv, 
@@ -29,7 +29,7 @@ because it stores the host fingerprint in the known hosts file
 
 ```
 $ ssh archlnx64
-The authenticity of host 'archlnx64 (192.168.50.95)' can't be established.
+The authenticity of host 'archlnx64 (192.168.1.95)' can't be established.
  ECDSA key fingerprint is SHA256:123456789abcdef123456789abcdef123456789abcd
  Are you sure you want to continue connecting (yes/no)? yes
  Warning: Permanently added 'archlnx64' (ECDSA) to the list of known hosts.
@@ -83,7 +83,7 @@ Last login: Thu Oct  6 14:38:28 2016 from desktop.local
 Now you are ready to run ansible with no hassle.
 ```
 $ ansible -m ping testbed
-192.168.50.95 | FAILED! => {
+192.168.1.95 | FAILED! => {
     "changed": false, 
     "failed": true, 
     "module_stderr": "", 
@@ -97,12 +97,12 @@ Since arch uses python3 by default, we need to add an environment variable
 to the inventory file (/etc/ansible/hosts) showing the python2 location.
 ```
 [testbed]
-192.168.50.95 ansible_python_interpreter=/usr/bin/python2
+192.168.1.95 ansible_python_interpreter=/usr/bin/python2
 ```
 And this is our first successful execution:
 ```
 $ ansible -m ping testbed
-192.168.50.95 | SUCCESS => {
+192.168.1.95 | SUCCESS => {
     "changed": false, 
     "ping": "pong"
 }
