@@ -1,0 +1,60 @@
+$ cat gfs-server1.yml
+---
+- hosts: gfsserver
+  become: yes
+  tasks:
+  - name: Buscar paquetes
+    yum: 
+      name: centos-release-gluster6
+      state: present
+      update_cache: yes
+    register: out
+  - name: Mostrar resultados
+    debug: 
+      var: out
+
+
+
+$ ansible-playbook gfs-server1.yml 
+
+PLAY [gfsserver] *********************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************
+ok: [c77host0.test.lab]
+
+TASK [Buscar paquetes] ***************************************************************************************************
+changed: [c77host0.test.lab]
+
+TASK [Mostrar resultados] ************************************************************************************************
+ok: [host0.x.y] => {
+    "out": {
+        "changed": true,
+        "changes": {
+            "installed": [
+                "centos-release-gluster6"
+            ]
+        },
+        "failed": false,
+        "msg": "",
+        "rc": 0,
+        "results": [
+            "Loaded plugins: fastestmirror\nLoading mirror speeds from cached hostfile\n
+            * base: mirror.librelabucm.org\n 
+            * epel: mirrors.coreix.net\n 
+            * extras: mirror.librelabucm.org\n 
+            * updates: ftp.cica.es\nResolving Dependencies\n
+            --> Running transaction check\n
+            ---> Package centos-release-gluster6.noarch 0:1.0-1.el7.centos will be installed\n
+            --> Processing Dependency: centos-release-storage-common for package: centos-release-gluster6-1.0-1.el7.centos.noarch\n
+            --> Running transaction check\n
+            ---> Package centos-release-storage-common.noarch 0:2-2.el7.centos will be installed\n
+            --> Finished Dependency Resolution\n\nDependencies Resolved\n\n
+            
+            ================================================================================\n
+            Package                          Arch      Version             Repository\n                                                                           Size\n================================================================================\nInstalling:\n centos-release-gluster6          noarch    1.0-1.el7.centos    extras    4.3 k\nInstalling for dependencies:\n centos-release-storage-common    noarch    2-2.el7.centos      extras    5.1 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+1 Dependent package)\n\nTotal download size: 9.4 k\nInstalled size: 2.0 k\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                               20 kB/s | 9.4 kB  00:00     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : centos-release-storage-common-2-2.el7.centos.noarch          1/2 \n  Installing : centos-release-gluster6-1.0-1.el7.centos.noarch              2/2 \n  Verifying  : centos-release-gluster6-1.0-1.el7.centos.noarch              1/2 \n  Verifying  : centos-release-storage-common-2-2.el7.centos.noarch          2/2 \n\nInstalled:\n  centos-release-gluster6.noarch 0:1.0-1.el7.centos                             \n\nDependency Installed:\n  centos-release-storage-common.noarch 0:2-2.el7.centos                         \n\nComplete!\n"
+        ]
+    }
+}
+
+PLAY RECAP ***************************************************************************************************************
+host0.x.y          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
