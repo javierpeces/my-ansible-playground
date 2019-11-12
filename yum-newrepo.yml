@@ -1,0 +1,9 @@
+---
+- hosts: physical
+  become: yes
+  tasks:
+  - name: Instalar repositorio oVirt
+    yum: 
+      name: "https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm"
+      state: present
+      update_cache: yes
