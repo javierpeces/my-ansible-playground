@@ -27,7 +27,7 @@ TASK [Instalar paquetes] *******************************************************
 changed: [host0.x.y]
 
 TASK [Mostrar resultados] ************************************************************************************************
-ok: [c77host0.test.lab] => {
+ok: [host0.x.y] => {
     "out": {
         "changed": true,
         "changes": {
@@ -291,4 +291,4 @@ ok: [c77host0.test.lab] => {
 }
 
 PLAY RECAP ***************************************************************************************************************
-c77host0.test.lab          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+host0.x.y          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
