@@ -1,0 +1,6 @@
+---
+- hosts: physical
+  become: yes
+  tasks:
+  - name: Apagar máquinas seleccionadas
+    command: halt -p
