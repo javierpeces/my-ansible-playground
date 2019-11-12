@@ -1,0 +1,9 @@
+---
+- hosts: physical
+  become: yes
+  tasks:
+  - name: Instalar paquetes cockpit y vdsm
+    yum: 
+      name: [ "cockpit-ovirt-dashboard", "vdsm-gluster" ]
+      state: present
+      update_cache: yes
