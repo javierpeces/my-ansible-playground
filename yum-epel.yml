@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Instalar repositorio EPEL
+    yum: 
+      name: epel-release
+      state: present
