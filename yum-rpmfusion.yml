@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Instalar repositorio RPMFUSION
+    yum: 
+      name: https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+      state: present
+      # disable_gpg_check: yes
