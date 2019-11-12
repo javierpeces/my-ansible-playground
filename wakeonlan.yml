@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Encender todo
+    command: wakeonlan "{{ item.macaddr }}"
+    with_items:
+    - macaddr: "00:01:29:EB:CD:27"
+    - macaddr: "00:01:29:8E:AA:E9"
+    - macaddr: "00:01:29:8B:A9:DB"
