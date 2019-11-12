@@ -1,0 +1,37 @@
+$ cat activar_servicios.yml 
+---
+- hosts: physical
+  become: yes
+  tasks:
+  - name: Activar Samba
+    systemd: 
+      name: "{{ item.servicio }}"
+      state: started
+      enabled: yes
+    with_items:
+    - servicio: "smb"
+    - servicio: "nmb"
+
+
+
+$ ansible-playbook activar_servicios.yml 
+
+PLAY [physical] **********************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************
+ok: [host2.test.lab]
+ok: [host1.test.lab]
+ok: [host0.test.lab]
+
+TASK [Activar Samba] *****************************************************************************************************
+changed: [host1.test.lab] => (item={'servicio': 'smb'})
+changed: [host2.test.lab] => (item={'servicio': 'smb'})
+changed: [host0.test.lab] => (item={'servicio': 'smb'})
+changed: [host1.test.lab] => (item={'servicio': 'nmb'})
+changed: [host2.test.lab] => (item={'servicio': 'nmb'})
+changed: [host0.test.lab] => (item={'servicio': 'nmb'})
+
+PLAY RECAP ***************************************************************************************************************
+host0.test.lab          : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+host1.test.lab          : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+host2.test.lab          : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
